@@ -7,11 +7,20 @@ def check_file_modified(filepath):
     :param filepath: path to the file being examined
     :return: a boolean indicating whether the file was modified in the most recent commit
     """
-
-    repo = Repo(filepath, search_parent_directories=True)
-    diff = repo.head.commit.diff('HEAD~1')
-    filepath_end = filepath.replace('\\', '/').split('pbi/')[-1]
     
+    repo = Repo(filepath, search_parent_directories=True)
+    print("printing filepath")
+    print(filepath)
+    print("printing repo\n")
+    print(repo)
+    
+    diff = repo.head.commit.diff('HEAD~1')
+    print("diff")
+    print(diff)
+          
+    filepath_end = filepath.replace('\\', '/').split('pbi/')[-1]
+    print("filepath_end")
+    print(filepath_end)
     return any(f.b_path.split('pbi/')[-1] == filepath_end and f.change_type in ['A', 'M', 'R'] for f in diff)
 
 def open_branches():
