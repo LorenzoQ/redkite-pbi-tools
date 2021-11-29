@@ -7,10 +7,11 @@ def check_file_modified(filepath):
     :param filepath: path to the file being examined
     :return: a boolean indicating whether the file was modified in the most recent commit
     """
-    
-    repo = Repo(filepath, search_parent_directories=True)
+    print("entry line")
     print("printing filepath")
     print(filepath)
+    repo = Repo(filepath, search_parent_directories=True)
+   
     print("printing repo\n")
     print(repo)
     
