@@ -10,7 +10,7 @@ def check_file_modified(filepath):
     print("entry line")
     print("printing filepath")
     print(filepath)
-    repo = Repo(filepath, search_parent_directories=True)
+    repo = Repo(filepath, search_parent_directories=True).git #changed line +.git
    
     print("printing repo\n")
     print(repo)
